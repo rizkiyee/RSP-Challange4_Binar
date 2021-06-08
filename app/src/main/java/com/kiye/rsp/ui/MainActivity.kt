@@ -9,7 +9,6 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var selectedButton = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,28 +22,25 @@ class MainActivity : AppCompatActivity() {
         if (playerChoice.plus(1).mod(3) == compChoice)
             binding.ivVs.setImageResource(R.drawable.p1menang)
         else if (playerChoice == compChoice)
-            binding.ivVs.setImageResource(R.drawable.p2menang)
-        else
             binding.ivVs.setImageResource(R.drawable.draw)
+        else
+            binding.ivVs.setImageResource(R.drawable.p2menang)
         setComputerBg(compChoice)
     }
     private fun setWinnerEvent(){
         binding.flAction1.setOnClickListener {
-            selectedButton = 1
             binding.flAction1.setBackgroundResource(R.drawable.bg_action)
             binding.flAction2.setBackgroundResource(0)
             binding.flAction3.setBackgroundResource(0)
             setGame(1, Random.nextInt(0,3))
         }
         binding.flAction2.setOnClickListener {
-            selectedButton = 2
             binding.flAction1.setBackgroundResource(0)
             binding.flAction2.setBackgroundResource(R.drawable.bg_action)
             binding.flAction3.setBackgroundResource(0)
             setGame(2,Random.nextInt(0,3))
         }
         binding.flAction3.setOnClickListener {
-            selectedButton =3
             binding.flAction1.setBackgroundResource(0)
             binding.flAction2.setBackgroundResource(0)
             binding.flAction3.setBackgroundResource(R.drawable.bg_action)
