@@ -26,49 +26,52 @@ class MainActivity : AppCompatActivity() {
             binding.ivVs.setImageResource(R.drawable.p1menang)
         setComputerBg(compChoice)
     }
-    private fun setWinnerEvent(){
+
+    private fun setWinnerEvent() {
         binding.flAction1.setOnClickListener {
             binding.flAction1.setBackgroundResource(R.drawable.bg_action)
             binding.flAction2.setBackgroundResource(0)
             binding.flAction3.setBackgroundResource(0)
-            setGame(0, Random.nextInt(0,3))
+            setGame(0, Random.nextInt(0, 3))
         }
         binding.flAction2.setOnClickListener {
             binding.flAction1.setBackgroundResource(0)
             binding.flAction2.setBackgroundResource(R.drawable.bg_action)
             binding.flAction3.setBackgroundResource(0)
-            setGame(1,Random.nextInt(0,3))
+            setGame(1, Random.nextInt(0, 3))
         }
         binding.flAction3.setOnClickListener {
             binding.flAction1.setBackgroundResource(0)
             binding.flAction2.setBackgroundResource(0)
             binding.flAction3.setBackgroundResource(R.drawable.bg_action)
-            setGame(2,Random.nextInt(0,3))
+            setGame(2, Random.nextInt(0, 3))
         }
-        binding.ivRefresh.setOnClickListener{
+        binding.ivRefresh.setOnClickListener {
             resetGame()
         }
     }
-    private fun setComputerBg(compChoice: Int){
-        when(compChoice){
-            0->{
+
+    private fun setComputerBg(compChoice: Int) {
+        when (compChoice) {
+            0 -> {
                 binding.flAction4.setBackgroundResource(R.drawable.bg_action)
                 binding.flAction5.setBackgroundResource(0)
                 binding.flAction6.setBackgroundResource(0)
             }
-            1->{
+            1 -> {
                 binding.flAction4.setBackgroundResource(0)
                 binding.flAction5.setBackgroundResource(R.drawable.bg_action)
                 binding.flAction6.setBackgroundResource(0)
             }
-            2->{
+            2 -> {
                 binding.flAction4.setBackgroundResource(0)
                 binding.flAction5.setBackgroundResource(0)
                 binding.flAction6.setBackgroundResource(R.drawable.bg_action)
             }
         }
     }
-    private fun resetGame(){
+
+    private fun resetGame() {
         binding.flAction1.setBackgroundResource(0)
         binding.flAction2.setBackgroundResource(0)
         binding.flAction3.setBackgroundResource(0)
